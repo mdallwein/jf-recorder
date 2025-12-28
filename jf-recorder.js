@@ -1,4 +1,4 @@
-<script>
+
     /************************************************************
      * CONFIG
      ************************************************************/
@@ -532,4 +532,3 @@
       const membersEl = document.getElementById("ensMembers");
       if (members !== null && membersEl) membersEl.value = members;
     })();
-  </script>

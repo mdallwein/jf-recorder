@@ -1,0 +1,540 @@
+ body {
+      margin: 0px;
+      width: 100%;
+    }
+
+    .content {
+      padding-right: 10px;
+    }
+
+    h2 {
+      color: #013c65;
+      font-size: 22px;
+      font-weight: strong;
+      font-family: gala, sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    /* Styles for Form Elements */
+    input,
+    textarea,
+    select,
+    button {
+      margin: 0;
+      padding: 0;
+      border: 1px solid #ccc;
+      font-size: 12px;
+      line-height: normal;
+      box-sizing: border-box;
+    }
+
+    input[readonly],
+    textarea[readonly] {
+      background-color: #e9ecef;
+      color: #474c51;
+      border: 1px solid #ced4da;
+      cursor: not-allowed;
+      font-size: 14px;
+      padding: 1px;
+    }
+
+    label {
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+      font-weight: normal;
+      color: #000;
+      display: block;
+    }
+
+    /* Add an asterisk ONLY for labels of required fields */
+    label.required::after {
+      content: " *";
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Prevent asterisk from appearing on checkboxes */
+    input[type="checkbox"]+label::after {
+      content: "";
+      /* Removes the asterisk */
+    }
+
+    /* Styles for Rubric Grid */
+    .custom-cell {
+      padding: 10px;
+      border: 1px solid #c7c7c7;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .col-1-5 {
+      flex: 1.5;
+      /* This makes it behave like a 1.5-column */
+      max-width: 12.5%;
+      /* 1.5 out of 12 columns (12.5%) */
+    }
+
+    .col-1-1 {
+      flex: 1.5;
+      /* This makes it behave like a 1.5-column */
+      max-width: 8.333%;
+      /* 1.5 out of 12 columns (12.5%) */
+    }
+
+    .concept-cell {
+      padding: .5rem;
+      border: 1px solid #c7c7c7;
+      text-align: left;
+      background-color: #013c65;
+      color: #fff;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .col-3.custom-cell {
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .col-3.custom-cell textarea {
+      width: 100%;
+      /* Ensures the textarea takes full width */
+      min-width: 250px;
+      /* Prevents textarea from being too small */
+      max-width: 100%;
+      /* Ensures responsiveness */
+    }
+
+    .thick-border {
+      border-bottom: 4px solid #c7c7c7;
+    }
+
+    .header-cell {
+      background-color: #013c65;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .col-3 {
+        flex-basis: 100%;
+        /* Makes comments section take full width on small screens */
+        max-width: 100%;
+      }
+    }
+
+    .resize-textarea {
+      resize: both;
+      min-height: 100px;
+      width: 100%;
+      resize: vertical;
+      font-size: 12px;
+    }
+
+    .form-select {
+      font-size: 12px;
+    }
+
+    .form-select option {
+      font-size: 12px;
+    }
+
+    form .form-control.resize-textarea {
+      font-size: 12px;
+    }
+
+    ul,
+    ol {
+      list-style-type: disc;
+      /* Default bullet points */
+      font-weight: normal;
+      /* Ensures text is not bold */
+      font-size: 10px;
+      /* Adjust font size if needed */
+      padding-left: 20px;
+      /* Add spacing for readability */
+    }
+
+    /* Custom Styles for Recorder */
+    #shadowbox {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      width: 100%;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    #recordButton {
+      display: inline-block;
+      background-color: green;
+      color: #fff;
+      border: green;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      width: 100%;
+      height: 40px;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    #recordButton:hover {
+      background-color: #fff;
+      color: green;
+      border: 2px solid green;
+    }
+
+    #recordButton.recording {
+      background-color: red;
+      color: #fff;
+      border: 2px solid red;
+      animation: pulse 600ms infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    #audioPlayerContainer {
+      display: none;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    #audioPlayer {
+      width: 100%;
+    }
+
+    #resetButton {
+      display: inline-block;
+      background-color: gray;
+      color: #fff;
+      border: gray;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      width: 100%;
+      height: 40px;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    #resetButton:hover {
+      background-color: #fff;
+      border: 2px solid gray;
+      color: gray;
+    }
+
+    #stopRecording {
+      display: none;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 0 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      border: none;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      width: 100%;
+      height: 40px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    #stopRecording::before {
+      content: "\25A0";
+      font-size: 20px;
+      padding-right: 5px;
+    }
+
+    #stopRecording:hover {
+      background-color: #fff;
+      color: red;
+      border: 2px solid red;
+    }
+
+
+    /* Pause button */
+    #pauseButton {
+      display: none;
+      background-color: #013c65;
+      color: #fff;
+      border: none;
+      margin-bottom: 12px;
+      border-radius: 15px;
+      width: 100%;
+      height: 40px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+    #pauseButton:hover { background-color: #fff; color: #013c65; border: 2px solid #013c65; }
+
+    #submitButton {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      background-color: #ff0000;
+      color: #fff;
+      border: #ff0000;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      width: 100%;
+      height: 75px;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    #submitButton:hover {
+      background-color: #fff;
+      border: 2px solid #ff0000;
+      color: #ff0000;
+    }
+
+    #recordingDurationContainer {
+      display: inline-block;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    #recordingDuration {
+      display: inline-block;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      border: 2px solid #013c65;
+      height: 40px;
+      border-radius: 15px;
+      vertical-align: middle;
+      padding-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Additional Styles for Form */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      vertical-align: middle;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    .site-header {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .site-identity img {
+      max-height: 50px;
+    }
+
+    .site-identity h1 {
+      display: inline;
+      color: #9aa439;
+      vertical-align: middle;
+      margin-left: 20px;
+      font-size: 24px;
+      font-family: gala, sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .site-navigation .nav {
+      list-style: none;
+      padding-left: 0;
+      vertical-align: middle;
+    }
+
+    .site-navigation .nav li {
+      display: inline;
+      margin-left: 15px;
+      vertical-align: middle;
+    }
+
+    .site-navigation .nav li a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .site-navigation .nav li a:hover {
+      text-decoration: underline;
+    }
+
+    #fixed {
+      position: fixed;
+      top: 110px;
+      /* Adjust as needed to maintain space from the top */
+      right: auto;
+      /* Prevent it from sticking to the edge */
+      width: calc(25% - 10px);
+      /* Adjust to align with col-md-3 */
+      max-width: 420px;
+      /* Limit maximum width */
+      margin-right: 15px;
+      /* Align within Bootstrap */
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+      box-sizing: border-box;
+      padding-top: 20px;
+    }
+
+    /* Repertoire Table */
+    table {
+      width: 100%;
+      /* Full width */
+      border-collapse: collapse;
+      /* Remove gaps between cells */
+      margin: 20px 0;
+      /* Add spacing above and below the table */
+      font-size: 12px;
+      /* Font size */
+      text-align: left;
+      /* Left-align text */
+    }
+
+    th {
+      background-color: #013c65;
+      /* Header background color */
+      color: white;
+      /* Header text color */
+      padding: 5px;
+      /* Cell padding */
+      border-bottom: 2px solid #ddd;
+      /* Bottom border for the header */
+    }
+
+    tr {
+      border-bottom: 1px solid #ddd;
+      /* Bottom border */
+    }
+
+    td {
+      padding: 5px;
+      /* Cell padding */
+    }
+
+    /* Styling the checkbox container */
+    .form-check {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      /* Aligns items to the left */
+      gap: 8px;
+      /* Adds space between the checkbox and label */
+    }
+
+    /* Customizing the checkbox */
+    .form-check-input {
+      width: 20px;
+      /* Adjust size */
+      height: 20px;
+      cursor: pointer;
+      accent-color: #007bff;
+      /* Bootstrap blue color */
+      margin-right: 8px;
+      /* Space between checkbox and label */
+    }
+
+    /* Styling the label for better alignment */
+    .form-check-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2f2f2f;
+      /* Darker text for readability */
+    }
+
+    /* Alert Box */
+    .alert-box {
+      background-color: #f44336;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(244, 67, 54, 0.7);
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .alert-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+
+    .alert-message {
+      margin-top: 10px;
+      font-size: 1em;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+      }
+
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+      }
+
+      100% {
+        transform: scale(1);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .progress {
+      height: 16px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      font-size: 11px;
+      line-height: 16px;
+    }
+
+    .status-pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #e9ecef;
+      font-size: 12px;
+      font-weight: 700;
+      color: #013c65;
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+    }

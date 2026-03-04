@@ -8,6 +8,45 @@
   }
   window.__JF_RECORDER_INIT__ = true;
 
+    /************************************************************
+     * OVERALL RATING CALCULATION
+     ************************************************************/
+    function updateOverallRating() {
+      const ids = ["rating1","rating2","rating3","rating4","rating5"];
+      let total = 0;
+      let count = 0;
+
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const v = parseFloat(el.value);
+        if (!isNaN(v)) {
+          total += v;
+          count++;
+        }
+      });
+
+      const overall = document.getElementById("overallRating");
+      if (!overall) return;
+
+      if (count > 0) {
+        const avg = total / count;
+        overall.value = Number.isInteger(avg) ? avg : avg.toFixed(1);
+      } else {
+        overall.value = "";
+      }
+    }
+
+    ["rating1","rating2","rating3","rating4","rating5"].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener("input", updateOverallRating);
+      el.addEventListener("change", updateOverallRating);
+    });
+
+    updateOverallRating();
+(() => {
+
   /************************************************************
    * CONFIG
    ************************************************************/

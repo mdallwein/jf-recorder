@@ -1,13 +1,3 @@
-(() => {
-  /************************************************************
-   * AIRTABLE / MINITEXTENSIONS GUARD
-   ************************************************************/
-  if (window.__JF_RECORDER_INIT__) {
-    console.warn("JF Recorder already initialized — skipping re-init.");
-    return;
-  }
-  window.__JF_RECORDER_INIT__ = true;
-
     /************************************************************
      * OVERALL RATING CALCULATION
      ************************************************************/
@@ -46,6 +36,14 @@
 
     updateOverallRating();
 (() => {
+  /************************************************************
+   * AIRTABLE / MINITEXTENSIONS GUARD
+   ************************************************************/
+  if (window.__JF_RECORDER_INIT__) {
+    console.warn("JF Recorder already initialized — skipping re-init.");
+    return;
+  }
+  window.__JF_RECORDER_INIT__ = true;
 
   /************************************************************
    * CONFIG

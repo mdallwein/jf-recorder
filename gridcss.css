@@ -1,84 +1,83 @@
-css
-
 :root {
-      --jf-blue: #013c65;
-      --jf-blue-alt: #014575;
-      --jf-white: #ffffff;
-      --jf-superheader: #f5881f;
-      --jf-subheader: rgba(255, 255, 255, 0.7);
-    }
+  --jf-blue: #013c65;
+  --jf-blue-alt: #014575;
+  --jf-white: #ffffff;
+  --jf-superheader: #f5881f;
+  --jf-subheader: rgba(255, 255, 255, 0.7);
+}
 
-    body {
-      min-height: 100%;
-      margin: 0;
-      font-family: "gala", sans-serif;
-      font-weight: 700;
-      font-style: normal;
-      color: var(--jf-blue);
-      background-color: var(--jf-blue);
-    }
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: "gala", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--jf-blue);
+  background-color: var(--jf-blue);
+}
 
-    table {
-      width: 100%;
-      border: 1px solid var(--jf-blue);
-      border-collapse: collapse;
-      background-color: var(--jf-blue);
-    }
+table {
+  width: 100%;
+  border: 1px solid var(--jf-blue);
+  border-collapse: collapse;
+  background-color: var(--jf-blue);
+}
 
-    th,
-    td {
-      padding: 10px 12px;
-      color: var(--jf-white);
-      vertical-align: middle;
-    }
+th,
+td {
+  padding: 10px 12px;
+  color: var(--jf-white);
+  vertical-align: middle;
+}
 
-    tr {
-      font-size: 2.5vw;
-    }
+tr {
+  font-size: 2.5vw;
+}
 
-    tr:nth-child(odd) {
-      background-color: var(--jf-blue-alt);
-    }
+tr:nth-child(odd) {
+  background-color: var(--jf-blue-alt);
+}
 
-    .time-cell {
-      width: 18%;
-      white-space: nowrap;
-      font-weight: 800;
-    }
+.time-cell {
+  width: 18%;
+  white-space: nowrap;
+  font-weight: 800;
+}
 
-    .session-cell {
-      width: 72%;
-    }
+.session-cell {
+  width: 72%;
+}
 
-    .empty-cell {
-      width: 10%;
-    }
+.empty-cell {
+  width: 10%;
+}
 
-    .session-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      line-height: 1.05;
-    }
+.session-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.05;
+}
 
-    .session-superheader {
-      font-size: 0.7em;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--jf-superheader);
-    }
+.session-superheader {
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--jf-superheader);
+}
 
-    .session-title {
-      font-size: 1em;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--jf-white);
-    }
+.session-title {
+  font-size: 1em;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--jf-white);
+}
 
-    .session-subheader {
-      font-size: 0.72em;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--jf-subheader);
-    }
+.session-subheader {
+  font-size: 0.72em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--jf-subheader);
+}
+

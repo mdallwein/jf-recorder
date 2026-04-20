@@ -39,17 +39,17 @@ tr:nth-child(odd) {
 }
 
 .time-cell {
-  width: 18%;
+  width: 14%;
   white-space: nowrap;
   font-weight: 800;
 }
 
 .session-cell {
-  width: 50%;
+  width: 43%;
 }
 
 .empty-cell {
-  width: 32%;
+  width: 43% !Important;
 }
 
 .session-copy {

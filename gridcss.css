@@ -45,11 +45,11 @@ tr:nth-child(odd) {
 }
 
 .session-cell {
-  width: 72%;
+  width: 50%;
 }
 
 .empty-cell {
-  width: 10%;
+  width: 32%;
 }
 
 .session-copy {
